@@ -1,0 +1,16 @@
+<h1>Buscar:<small> {{ palabraBuscada }}</small></h1>
+<hr>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="this.heroesEncontrados.length !== 0; else sinResultados">
+  <!-- *ngFor="let heroe of heroesEncontrados; let i = index" -->
+  <app-tarjeta-heroe [heroe]="heroeIterado" [index]="heroeIterado.id" [nombre]="heroeIterado.nombre" *ngFor="let heroeIterado of heroesEncontrados; let i = index"></app-tarjeta-heroe>
+
+</div>
+<ng-template #sinResultados>
+  <div class="card animated fadeIn">
+    <div class="card-body">
+      No se ha encontrado ningún resultado
+    </div>
+  </div>
+</ng-template>
